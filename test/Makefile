@@ -1,11 +1,12 @@
 # Makefile
-# See https://docs.cocotb.org/en/stable/quickstart.html for more info
+# See https://docs.coc#b.org/en/stable/quickstart.html for more info
 
 # defaults
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project.v
+#PROJECT_SOURCES = $(shell find $(SRC_DIR) -type f -name "*.sv")
+PROJECT_SOURCES = $(shell find $(SRC_DIR) -type f \( -name "*.sv" -o -name "*.svh" \))
 
 ifneq ($(GATES),yes)
 
@@ -22,8 +23,8 @@ COMPILE_ARGS    += -DFUNCTIONAL
 COMPILE_ARGS    += -DUSE_POWER_PINS
 COMPILE_ARGS    += -DSIM
 COMPILE_ARGS    += -DUNIT_DELAY=\#1
-VERILOG_SOURCES += $(PDK_ROOT)/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog/primitives.v
-VERILOG_SOURCES += $(PDK_ROOT)/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog/gf180mcu_fd_sc_mcu7t5v0.v
+VERILOG_SOURCES += $(PDK_RO#)/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog/primitives.v
+VERILOG_SOURCES += $(PDK_RO#)/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog/gf180mcu_fd_sc_mcu7t5v0.v
 
 # this gets copied in by the GDS action workflow
 VERILOG_SOURCES += $(PWD)/gate_level_netlist.v
@@ -32,13 +33,16 @@ endif
 
 # Allow sharing configuration between design and testbench via `include`:
 COMPILE_ARGS 		+= -I$(SRC_DIR)
+COMPILE_ARGS		+= -I$(SRC_DIR)/otGPIO.01
+COMPILE_ARGS		+= -I$(SRC_DIR)/otUART.03
+COMPILE_ARGS		+= -I$(SRC_DIR)/otSPI.03
 
 # Include the testbench sources:
 VERILOG_SOURCES += $(PWD)/tb.v
 TOPLEVEL = tb
 
 # List test modules to run, separated by commas and without the .py suffix:
-COCOTB_TEST_MODULES = test
+COC#B_TEST_MODULES = test
 
-# include cocotb's make rules to take care of the simulator setup
-include $(shell cocotb-config --makefiles)/Makefile.sim
+# include coc#b's make rules to take care of the simulator setup
+include $(shell coc#b-config --makefiles)/Makefile.sim

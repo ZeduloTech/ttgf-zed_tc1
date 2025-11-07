@@ -1,0 +1,205 @@
+/*
+ * Copyright (c) 2025 Zedulo
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+//`default_nettype none
+`include "otUART.03/uart_reg_pkg.sv"
+
+module tt_um_zedtc1_top (
+    input  wire [7:0] ui_in,    // Dedicated inputs
+    output wire [7:0] uo_out,   // Dedicated outputs
+    input  wire [7:0] uio_in,   // IOs: Input path
+    output wire [7:0] uio_out,  // IOs: Output path
+    output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
+    input  wire       ena,      // always 1 when the design is powered, so you can ignore it
+    input  wire       clk,      // clock
+    input  wire       rst_n     // reset_n - low to reset
+);
+//---------------------------------------------------
+// IP's Signal Declaration
+//-----------------------------------------------
+  //UART
+    wire tx_o, rx_i;
+    wire [15:0] nco_value;    
+    uart_reg_pkg::uart_reg2hw_t reg2hw;
+    uart_reg_pkg::uart_hw2reg_t hw2reg;
+
+    //SPI
+    localparam NumCS = 1;   
+    wire [7:0] tx_byte_i;
+    wire write_i;
+    wire read_i;
+    wire miso_i;    
+    wire [7:0] rx_byte_o;
+    wire awake_o;
+    wire idle_o;
+    wire mosi_o;
+    wire sck_o;
+    wire [NumCS-1:0] csb_o;   
+    reg spi_h_write = 0;
+    reg spi_h_read  = 0;
+    reg spi_writing = 0;
+    reg spi_reading = 0;
+
+//-------------------------------------
+// Pin Mapping
+//--------------------------------
+    wire clk_i = clk;
+    wire rst_ni = rst_n;        
+    //UART
+    assign uo_out[0] = tx_o;
+    assign rx_i      = ui_in[0];
+
+    //SPI
+    assign write_i   = spi_h_write;
+    assign read_i    = spi_h_read;
+    assign tx_byte_i = rx_byte_q;
+    assign miso_i    = ui_in[1];
+    assign uo_out[3:1] = {csb_o[0], sck_o, mosi_o};
+    assign tx_byte_d = rx_byte_o;
+
+//-----------------------------------
+// Avoid linter warnings
+//-----------------------------
+    assign uio_out[7:0] = 0;
+    assign uo_out[7:4] = 0;
+    assign uio_oe[7:0] = 8'b0;
+    wire _unused_pin = ^{ena, ui_in[7:2], uio_in[7:0], rx_byte_o, awake_o, idle_o, csb_o};
+
+//---------------------------------------
+// UART IP Configuration
+//-----------------------------
+    nco_config #(
+	.BAUD_RATE  (57600),
+        .CLK_FREQ_HZ(50_000_000)
+    ) nco_cfg (
+        .nco(nco_value)
+    );
+
+//-----------------------------------------------
+// FSM: Brige for UART and SPI IP Transactions
+//-------------------------------------------
+    typedef enum logic [2:0] {IDLE, READ, WRITE_PREP_1,  WRITE_PREP_2, WRITE} state_t;
+    state_t state;
+	
+    logic [7:0] rx_byte_q;
+    logic [7:0] tx_byte_d;
+
+    always_ff @(posedge clk_i or negedge rst_ni) begin
+	if (!rst_ni) begin
+		state	<= IDLE;
+		reg2hw <= '0;
+
+		reg2hw.ctrl.tx.q   <= 1'b1;
+		reg2hw.ctrl.rx.q   <= 1'b1;
+		reg2hw.ctrl.nco.q  <= 16'd0;
+		reg2hw.fifo_ctrl.txilvl.q <= 3'd1;
+            
+	end else begin
+		reg2hw.ctrl.nco.q  <= nco_value;
+          
+                reg2hw.rdata.re	<= 1'b0;
+                reg2hw.wdata.qe	<= 1'b0;
+
+		case (state)
+			IDLE: begin
+				if (!hw2reg.status.rxempty.d) begin
+					reg2hw.rdata.re <= 1'b1;
+					state <= READ;
+				end
+			end
+			READ: begin 
+				rx_byte_q <= hw2reg.rdata.d;
+				state <= WRITE_PREP_1;
+		        end
+		        WRITE_PREP_1: begin	
+				// full duplex
+				if (!spi_writing && !spi_reading && idle_o) begin
+					spi_h_write <= 1;
+		                        spi_h_read <= 1;
+		                end
+
+		                if (spi_h_write && spi_h_read && !idle_o) begin
+		                        spi_writing <= 1;
+		                        spi_reading <= 1;
+		                        spi_h_write <= 0;
+		                        spi_h_read <= 0;
+		                end
+
+				if (spi_writing && spi_reading && idle_o) begin
+					spi_writing <= 0;
+					spi_reading <= 0;
+					state <= WRITE_PREP_2;
+				end
+		        end
+
+		        WRITE_PREP_2: begin				
+				// full duplex
+		                if (!spi_writing && !spi_reading && idle_o) begin
+					spi_h_write <= 1;
+		                        spi_h_read <= 1;
+		                end
+
+				if (spi_h_write && spi_h_read && !idle_o) begin
+		                        spi_writing <= 1;
+		                        spi_reading <= 1;
+		                        spi_h_write <= 0;
+		                        spi_h_read <= 0;
+				end
+
+				if (spi_writing && spi_reading && idle_o) begin
+		                        spi_writing <= 0;
+		                        spi_reading <= 0;
+		                        state <= WRITE;
+				end
+		        end
+
+		        WRITE: begin
+				if (!hw2reg.status.txfull.d) begin
+		                        reg2hw.wdata.q <= tx_byte_d;
+		                        reg2hw.wdata.qe <= 1'b1;
+		                        state <= IDLE;
+				end
+		        end
+		    endcase
+		end
+    end
+
+//-------------------------------------
+// Module Instance Placeholder
+//-----------------------------------
+    //UART
+    uart_core uart0 (
+        .clk_i	(clk_i),
+        .rst_ni	(rst_ni),
+
+        .reg2hw (reg2hw),
+        .hw2reg	(hw2reg),
+
+        .rx	(rx_i),
+        .tx	(tx_o)
+    );
+
+    //SPI
+    spi_host #(
+	.NumCS		(NumCS)
+	 ) master (
+	   .clk_i		(clk_i),
+	.rst_ni		(rst_ni),
+
+	.tx_byte_i	(tx_byte_i),
+	.write_i	(write_i),
+	.read_i		(read_i),
+	.miso_i		(miso_i),
+
+	.rx_byte_o	(rx_byte_o),
+	.awake_o	(awake_o),
+	.idle_o		(idle_o),
+	.mosi_o		(mosi_o),
+
+	.sck_o		(sck_o),
+	.csb_o		(csb_o)
+    );
+
+endmodule //tt_um_zedtc1_top

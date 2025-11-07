@@ -1,0 +1,206 @@
+********************************************
+*  SURELOG SystemVerilog  Compiler/Linter  *
+********************************************
+
+Copyright (c) 2017-2023 Alain Dargelas,
+http://www.apache.org/licenses/LICENSE-2.0
+
+VERSION: 1.82
+BUILT  : Jan  1 1980
+DATE   : 2025-11-07.14:25:53
+COMMAND: -sverilog -top tt_um_zedtc1_top -DPDK_sky130A -DSCL_sky130_fd_sc_hd -D__librelane__ -D__pnr__ /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/tt_um_zedtc1_top.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/uart_reg_pkg.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/nco_config.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/uart_core.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/uart_tx.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/uart_rx.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_util_pkg.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_count_pkg.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_sync_cnt.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_sync.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_flop_2sync.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_flop_macros.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_count.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_flop.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_assert.svh /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_sec_cm.svh /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/prim_packer_fifo.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_byte_select.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_byte_merge.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_cmd_pkg.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_shift_register.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/prim_buf.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/prim_sec_anchor_buf.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/prim_flop_en.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/prim_util_pkg.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_fsm.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_core.sv /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host.sv -DYOSYS=1 -DSYNTHESIS=1
+
+[INF:CM0023] Creating log file "/Design/snapaa/TC/TC1/ttgf-zed_tc1/slpp_all/surelog.log".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:8:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:8:9: Unused macro argument "__prop".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:9:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:9:9: Unused macro argument "__prop".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:10:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:10:9: Unused macro argument "__prop".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:11:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:11:9: Unused macro argument "__prop".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:12:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:12:9: Unused macro argument "__prop".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:12:9: Unused macro argument "__rst".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:13:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:13:9: Unused macro argument "__prop".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:13:9: Unused macro argument "__rst".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:14:9: Unused macro argument "__clk".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:14:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:14:9: Unused macro argument "__prop".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:14:9: Unused macro argument "__rst".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:15:9: Unused macro argument "__clk".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:15:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:15:9: Unused macro argument "__prop".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:15:9: Unused macro argument "__rst".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:16:9: Unused macro argument "__clk".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:16:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:16:9: Unused macro argument "__rst".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:16:9: Unused macro argument "__sig".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:17:9: Unused macro argument "__clk".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:17:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:17:9: Unused macro argument "__prop".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:17:9: Unused macro argument "__rst".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:18:9: Unused macro argument "__clk".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:18:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:18:9: Unused macro argument "__prop".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:18:9: Unused macro argument "__rst".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:19:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:19:9: Unused macro argument "__prop".
+[NTE:PP0128] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_sec_cm.svh:28: Non ASCII character detected, replaced by space.
+[NTE:PP0128] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_sync.sv:31:18: Non ASCII character detected, replaced by space.
+[WRN:PP0103] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_count.sv:28: Undefining an unknown macro "INC_ASSERT".
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:8:1: Multiply defined macro "ASSERT_I",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:8:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:14:1: Multiply defined macro "ASSERT_INIT",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:9:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:27:1: Multiply defined macro "ASSERT_INIT_NET",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:10:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:36:1: Multiply defined macro "ASSERT_FINAL",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:11:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:47:1: Multiply defined macro "ASSERT_AT_RESET",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:12:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:57:1: Multiply defined macro "ASSERT_AT_RESET_AND_FINAL",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:13:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:62:1: Multiply defined macro "ASSERT",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:14:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:69:1: Multiply defined macro "ASSERT_NEVER",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:15:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:76:1: Multiply defined macro "ASSERT_KNOWN",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:16:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:82:1: Multiply defined macro "COVER",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:17:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:86:1: Multiply defined macro "ASSUME",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:18:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:92:1: Multiply defined macro "ASSUME_I",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:19:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:8:1: Multiply defined macro "ASSERT_I",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:8:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:13:1: Multiply defined macro "ASSERT_INIT",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:14:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:18:1: Multiply defined macro "ASSERT_INIT_NET",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:27:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:24:1: Multiply defined macro "ASSERT_FINAL",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:36:9: previous definition.
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:24:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:24:9: Unused macro argument "__prop".
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:28:1: Multiply defined macro "ASSERT_AT_RESET",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:47:9: previous definition.
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:28:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:28:9: Unused macro argument "__prop".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:28:9: Unused macro argument "__rst".
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:30:1: Multiply defined macro "ASSERT_AT_RESET_AND_FINAL",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:57:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:34:1: Multiply defined macro "ASSERT",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:62:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:39:1: Multiply defined macro "ASSERT_NEVER",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:69:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:45:1: Multiply defined macro "ASSERT_KNOWN",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:76:9: previous definition.
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:45:9: Unused macro argument "__clk".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:45:9: Unused macro argument "__name".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:45:9: Unused macro argument "__rst".
+[WRN:PP0113] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:45:9: Unused macro argument "__sig".
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:47:1: Multiply defined macro "COVER",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:82:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:52:1: Multiply defined macro "ASSUME",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:86:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:57:1: Multiply defined macro "ASSUME_I",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_standard_macros.svh:92:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:8:1: Multiply defined macro "ASSERT_I",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:8:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:9:1: Multiply defined macro "ASSERT_INIT",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:13:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:10:1: Multiply defined macro "ASSERT_INIT_NET",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:18:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:11:1: Multiply defined macro "ASSERT_FINAL",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:24:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:12:1: Multiply defined macro "ASSERT_AT_RESET",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:28:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:13:1: Multiply defined macro "ASSERT_AT_RESET_AND_FINAL",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:30:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:14:1: Multiply defined macro "ASSERT",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:34:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:15:1: Multiply defined macro "ASSERT_NEVER",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:39:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:16:1: Multiply defined macro "ASSERT_KNOWN",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:45:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:17:1: Multiply defined macro "COVER",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:47:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:18:1: Multiply defined macro "ASSUME",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:52:9: previous definition.
+[NTE:PP0105] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_dummy_macros.svh:19:1: Multiply defined macro "ASSUME_I",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_yosys_macros.svh:57:9: previous definition.
+[NTE:PP0128] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_assert_sec_cm.svh:28:19: Non ASCII character detected, replaced by space.
+[INF:CP0300] Compilation...
+[INF:CP0301] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/uart_reg_pkg.sv:7:1: Compile package "uart_reg_pkg".
+[INF:CP0301] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/uart_reg_pkg.sv:7:1: Compile package "uart_reg_pkg".
+[INF:CP0301] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_util_pkg.sv:9:1: Compile package "prim_util_pkg_u".
+[INF:CP0301] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_count_pkg.sv:5:1: Compile package "prim_count_pkg".
+[INF:CP0301] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_cmd_pkg.sv:8:1: Compile package "spi_host_cmd_pkg".
+[INF:CP0301] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/prim_util_pkg.sv:9:1: Compile package "prim_util_pkg".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/nco_config.sv:3:1: Compile module "work@nco_config".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/prim_buf.sv:9:1: Compile module "work@prim_buf".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_count.sv:30:1: Compile module "work@prim_count".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_sync.sv:10:1: Compile module "work@prim_fifo_sync".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_sync_cnt.sv:9:1: Compile module "work@prim_fifo_sync_cnt".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_flop.sv:7:1: Compile module "work@prim_flop".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_flop_2sync.sv:7:1: Compile module "work@prim_flop_2sync".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/prim_flop_en.sv:9:1: Compile module "work@prim_flop_en".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/prim_packer_fifo.sv:45:1: Compile module "work@prim_packer_fifo".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/prim_sec_anchor_buf.sv:9:1: Compile module "work@prim_sec_anchor_buf".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host.sv:7:1: Compile module "work@spi_host".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_byte_merge.sv:7:1: Compile module "work@spi_host_byte_merge".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_byte_select.sv:7:1: Compile module "work@spi_host_byte_select".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_core.sv:8:1: Compile module "work@spi_host_core".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_fsm.sv:12:1: Compile module "work@spi_host_fsm".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_shift_register.sv:8:1: Compile module "work@spi_host_shift_register".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/tt_um_zedtc1_top.sv:9:1: Compile module "work@tt_um_zedtc1_top".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/uart_core.sv:9:1: Compile module "work@uart_core".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/uart_rx.sv:8:1: Compile module "work@uart_rx".
+[INF:CP0303] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/uart_tx.sv:8:1: Compile module "work@uart_tx".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[WRN:CP0329] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/tt_um_zedtc1_top.sv:7:1: Multiply defined package: "uart_reg_pkg",
+             /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/uart_reg_pkg.sv:7:1: previous definition.
+[NTE:CP0309] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_sync.sv:24:27: Implicit port type (wire) for "wready_o",
+there are 4 more instances of this message.
+[NTE:CP0309] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host.sv:16:16: Implicit port type (wire) for "rx_byte_o",
+there are 5 more instances of this message.
+[NTE:CP0309] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_core.sv:20:37: Implicit port type (wire) for "command_ready_o".
+[NTE:CP0309] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_shift_register.sv:25:22: Implicit port type (wire) for "tx_ready_o",
+there are 1 more instances of this message.
+[NTE:CP0309] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/uart_rx.sv:19:19: Implicit port type (wire) for "rx_data",
+there are 2 more instances of this message.
+[NTE:CP0309] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/uart_tx.sv:19:23: Implicit port type (wire) for "idle".
+[INF:EL0526] Design Elaboration...
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_sync.sv:107:14: Compile generate block "work@tt_um_zedtc1_top.uart0.u_uart_txfifo.gen_normal_fifo".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_sync_cnt.sv:113:12: Compile generate block "work@tt_um_zedtc1_top.uart0.u_uart_txfifo.gen_normal_fifo.u_fifo_cnt.gen_normal_ptrs".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_sync.sv:164:16: Compile generate block "work@tt_um_zedtc1_top.uart0.u_uart_txfifo.gen_normal_fifo.gen_nopass".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_sync.sv:170:30: Compile generate block "work@tt_um_zedtc1_top.uart0.u_uart_txfifo.gen_normal_fifo.gen_output_zero".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_sync.sv:107:14: Compile generate block "work@tt_um_zedtc1_top.uart0.u_uart_rxfifo.gen_normal_fifo".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_sync_cnt.sv:113:12: Compile generate block "work@tt_um_zedtc1_top.uart0.u_uart_rxfifo.gen_normal_fifo.u_fifo_cnt.gen_normal_ptrs".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_sync.sv:164:16: Compile generate block "work@tt_um_zedtc1_top.uart0.u_uart_rxfifo.gen_normal_fifo.gen_nopass".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otUART.03/prim_fifo_sync.sv:170:30: Compile generate block "work@tt_um_zedtc1_top.uart0.u_uart_rxfifo.gen_normal_fifo.gen_output_zero".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/prim_packer_fifo.sv:105:19: Compile generate block "work@tt_um_zedtc1_top.master.master_core.u_merge.u_packer.gen_pack_mode".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_byte_select.sv:49:36: Compile generate block "work@tt_um_zedtc1_top.master.master_core.u_select.gen_map_data_be[0]".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_byte_select.sv:49:36: Compile generate block "work@tt_um_zedtc1_top.master.master_core.u_select.gen_map_data_be[1]".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_byte_select.sv:49:36: Compile generate block "work@tt_um_zedtc1_top.master.master_core.u_select.gen_map_data_be[2]".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_byte_select.sv:49:36: Compile generate block "work@tt_um_zedtc1_top.master.master_core.u_select.gen_map_data_be[3]".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/prim_packer_fifo.sv:126:12: Compile generate block "work@tt_um_zedtc1_top.master.master_core.u_select.u_packer.gen_unpack_mode".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/prim_packer_fifo.sv:168:21: Compile generate block "work@tt_um_zedtc1_top.master.master_core.u_select.u_packer.gen_unpack_mode.gen_unused".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/prim_flop_en.sv:32:12: Compile generate block "work@tt_um_zedtc1_top.master.master_core.u_fsm.u_sck_flop.gen_en_no_sec_buf".
+[INF:CP0335] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/otSPIhost.05/spi_host_fsm.sv:886:41: Compile generate block "work@tt_um_zedtc1_top.master.master_core.u_fsm.gen_csb_gen[0]".
+[NTE:EL0503] /Design/snapaa/TC/TC1/ttgf-zed_tc1/src/tt_um_zedtc1_top.sv:9:1: Top level module "work@tt_um_zedtc1_top".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 5.
+[NTE:EL0510] Nb instances: 21.
+[NTE:EL0511] Nb leaf instances: 1.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 47
+[   NOTE] : 50
