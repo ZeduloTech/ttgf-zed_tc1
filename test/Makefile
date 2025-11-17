@@ -6,7 +6,10 @@ SIM ?= icarus
 WAVES ?= 1
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
+<<<<<<< HEAD
 #PROJECT_SOURCES = $(shell find $(SRC_DIR) -type f -name "*.sv")
+=======
+>>>>>>> 0820dd5 (Updated README, info.md)
 PROJECT_SOURCES = $(shell find $(SRC_DIR) -type f \( -name "*.sv" -o -name "*.svh" \))
 
 ifneq ($(GATES),yes)
