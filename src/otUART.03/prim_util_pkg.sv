@@ -34,7 +34,7 @@ package prim_util_pkg_u;
     for (result = 0; v > 0; result++) begin
       v = v >> 1;
     end
-    return result;
+    _clog2 =  result;
   endfunction
 
 
@@ -80,9 +80,9 @@ package prim_util_pkg_u;
     // to an implementation without a system function. Remove this workaround
     // if we require a newer Xcelium version.
     // See #2579 and #2597.
-    return (value == 1) ? 1 : _clog2(value);
+    vbits = (value == 1) ? 1 : _clog2(value);
 `else
-    return (value == 1) ? 1 : $clog2(value);
+    vbits = (value == 1) ? 1 : $clog2(value);
 `endif
   endfunction
 
