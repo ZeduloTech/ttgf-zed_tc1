@@ -11,7 +11,7 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v4
         with:
-          submodules: false
+          submodules: recursive
 
       - name: Build GDS
         uses: TinyTapeout/tt-gds-action@ttgf0p2

@@ -17,6 +17,7 @@ module uart_core (
   output logic           tx
 );
 
+
   localparam int NcoWidth = 16;
 
   localparam int TxFifoDepthW = $clog2(uart_reg_pkg::TxFifoDepth)+1;
