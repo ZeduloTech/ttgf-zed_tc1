@@ -17,10 +17,6 @@ module uart_core (
   output logic           tx
 );
 
-<<<<<<< HEAD
-=======
-
->>>>>>> eb80334 (removed import statement in uart_core and manually called the constants)
   localparam int NcoWidth = 16;
 
   localparam int TxFifoDepthW = $clog2(uart_reg_pkg::TxFifoDepth)+1;
