@@ -4,7 +4,7 @@
 //
 // Description: UART core module
 //
-//`include "uart_reg_pkg.sv"
+`include "uart_reg_pkg.sv"
 
 module uart_core (
   input                  clk_i,
