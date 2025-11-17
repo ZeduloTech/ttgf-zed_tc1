@@ -1,42 +1,32 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
 
-# Tiny Tapeout Verilog Project Template
+# Zedulo TestChip1 — UART → SPI Bridge
 
-- [Read the documentation for project](docs/info.md)
+This testchip integrates UART IP and SPI IP. Incoming bytes from UART are
+forwarded to SPI, validating UART/SPI IP integration on silicon.
 
-## What is Tiny Tapeout?
+### Function
+- UART IP receives a frame via `UART RX`.
+- Bytes are read from RX fifo output into a buffer.
+- Each received byte triggers the following:
+    - A single-byte SPI transaction, sent to an external SPI slave via
+    `MOSI`. SPI uses mode 3.
+    - A single-byte SPI transaction, receiving the (external) SPI
+    slave's response via `MISO`.
+- The SPI slave response is sampled from MISO;
+- SPI response returned are written to TX fifo which is echoed out via `UART TX`.
 
-Tiny Tapeout is an educational project that aims to make it easier and cheaper than ever to get your digital and analog designs manufactured on a real chip.
+### Pinout
+| Pin       | Name      | Dir | Description      |
+|-----------|-----------|-----|------------------|
+| ui[0]     | UART_RX   | In  | UART receive     |
+| ui[1]     | SPI_MISO  | In  | SPI MISO         |
+| uo[0]     | UART_TX   | Out | UART transmit    |
+| uo[1]     | SPI_SCL   | Out | SPI clock        |
+| uo[2]     | SPI_CS    | Out | SPI chip-select  |
+| uo[3]     | SPI_MOSI  | Out | SPI MOSI         |
+| others    | —         | —   | Unused           |
 
-To learn more and get started, visit https://tinytapeout.com.
-
-## Set up your Verilog project
-
-1. Add your Verilog files to the `src` folder.
-2. Edit the [info.yaml](info.yaml) and update information about your project, paying special attention to the `source_files` and `top_module` properties. If you are upgrading an existing Tiny Tapeout project, check out our [online info.yaml migration tool](https://tinytapeout.github.io/tt-yaml-upgrade-tool/).
-3. Edit [docs/info.md](docs/info.md) and add a description of your project.
-4. Adapt the testbench to your design. See [test/README.md](test/README.md) for more information.
-
-The GitHub action will automatically build the ASIC files using [LibreLane](https://www.zerotoasiccourse.com/terminology/librelane/).
-
-## Enable GitHub actions to build the results page
-
-- [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
-
-## Resources
-
-- [FAQ](https://tinytapeout.com/faq/)
-- [Digital design lessons](https://tinytapeout.com/digital_design/)
-- [Learn how semiconductors work](https://tinytapeout.com/siliwiz/)
-- [Join the community](https://tinytapeout.com/discord)
-- [Build your design locally](https://www.tinytapeout.com/guides/local-hardening/)
-
-## What next?
-
-- [Submit your design to the next shuttle](https://app.tinytapeout.com/).
-- Edit [this README](README.md) and explain your design, how it works, and how to test it.
-- Share your project on your social network of choice:
-  - LinkedIn [#tinytapeout](https://www.linkedin.com/search/results/content/?keywords=%23tinytapeout) [@TinyTapeout](https://www.linkedin.com/company/100708654/)
-  - Mastodon [#tinytapeout](https://chaos.social/tags/tinytapeout) [@matthewvenn](https://chaos.social/@matthewvenn)
-  - X (formerly Twitter) [#tinytapeout](https://twitter.com/hashtag/tinytapeout) [@tinytapeout](https://twitter.com/tinytapeout)
-  - Bluesky [@tinytapeout.com](https://bsky.app/profile/tinytapeout.com)
+### Source IP
+This design integrates UART and SPI IP derived from the **OpenTitan project**:  
+https://github.com/lowRISC/opentitan
