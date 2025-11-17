@@ -20,9 +20,10 @@ project:
     # UART IP
     - "otUART.03/uart_reg_pkg.sv"
     - "otUART.03/nco_config.sv"
-    - "otUART.03/uart_core.sv"
+    #- "otUART.03/uart_core.sv"
     - "otUART.03/uart_tx.sv"
     - "otUART.03/uart_rx.sv"
+    - "otUART.03/uart_core.sv"
     - "otUART.03/prim_util_pkg.sv"
     - "otUART.03/prim_count_pkg.sv"
     - "otUART.03/prim_fifo_sync_cnt.sv"
