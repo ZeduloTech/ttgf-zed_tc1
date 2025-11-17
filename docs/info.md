@@ -8,9 +8,3 @@ Use e.g TTL-232 to UART interface such that bytes sent via UART to `UART_RX` and
 `SPI_SCL`, `SPI_CS`, and `SPI_MOSI`.
 Data returned from SPI is echo via `UART_TX`.
 
-<<<<<<< HEAD
-## External hardware
-
-None for the board.
-=======
->>>>>>> 0820dd5 (Updated README, info.md)
