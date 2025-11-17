@@ -13,7 +13,7 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          submodules: false
 
       - name: FPGA bitstream for TT ASIC Sim (ICE40UP5K)
         uses: TinyTapeout/tt-gds-action/fpga/ice40up5k@ttgf0p2
