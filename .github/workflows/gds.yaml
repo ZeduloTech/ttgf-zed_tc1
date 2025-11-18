@@ -32,7 +32,7 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v4
         with:
-          submodules: false
+          submodules: recursive
 
       - name: GL test
         uses: TinyTapeout/tt-gds-action/gl_test@ttgf0p2
