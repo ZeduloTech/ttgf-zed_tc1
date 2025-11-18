@@ -33,9 +33,10 @@ async def test_project(dut):
     await ClockCycles(dut.clk, 1)
 
     # The following assersion is just an example of how to check the output values.
-    # Change it to match the actual expected output of your module:
+    # Change it to match the actual expected output of your module, tmp:
     assert dut.uo_out.value.is_resolvable, "uo_out contains X or Z"
     assert dut.uio_out.value.is_resolvable, "uio_out contains X or Z"
+
     # Keep testing the module by changing the input values, waiting for
     # one or more clock cycles, and asserting the expected output values.
     dut._log.info("smoke test passed")
