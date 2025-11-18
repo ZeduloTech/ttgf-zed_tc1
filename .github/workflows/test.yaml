@@ -23,11 +23,19 @@ jobs:
         shell: bash
         run: pip install -r test/requirements.txt
 
-      - name: Minimal Test Pass
+      - name: Run tests
         run: |
-          mkdir -p test/output
-          # dummy waveform file
-          echo "dummy content" > test/results.xml
+          cd test
+          make clean
+          make
+          # make will return success even if the test fails, so check for failure in the results.xml
+          ! grep failure results.xml
+
+      - name: Test Summary
+        uses: test-summary/action@v2.3
+        with:
+          paths: "test/results.xml"
+        if: always()
 
       - name: upload vcd
         if: success() || failure()

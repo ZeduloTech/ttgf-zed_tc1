@@ -17,20 +17,21 @@ module uart_core (
   output logic           tx
 );
 
+import uart_reg_pkg::*; 
 
   localparam int NcoWidth = 16;
 
-  localparam int TxFifoDepthW = $clog2(uart_reg_pkg::TxFifoDepth)+1;
-  localparam int RxFifoDepthW = $clog2(uart_reg_pkg::RxFifoDepth)+1;
+  localparam int TxFifoDepthW = $clog2(TxFifoDepth)+1;
+  localparam int RxFifoDepthW = $clog2(RxFifoDepth)+1;
 
   // The design does not support FIFOs deeper than 255 elements with the current CSR layout.
-  //`ASSERT_INIT(uart_reg_pkg::TxFifoDepth_A, uart_reg_pkg::TxFifoDepth < 256)
-  //`ASSERT_INIT(uart_reg_pkg::RxFifoDepth_A, uart_reg_pkg::RxFifoDepth < 256)
+  //`ASSERT_INIT(TxFifoDepth_A, TxFifoDepth < 256)
+  //`ASSERT_INIT(RxFifoDepth_A, RxFifoDepth < 256)
   
 `ifndef SYNTHESIS
   initial begin
-  	assert(uart_reg_pkg::TxFifoDepth < 256) else $fatal("uart_reg_pkg::TxFifoDepth must be < 256");
-  	assert(uart_reg_pkg::RxFifoDepth < 256) else $fatal("uart_reg_pkg::RxFifoDepth must be < 256");
+  	assert(TxFifoDepth < 256) else $fatal("TxFifoDepth must be < 256");
+  	assert(RxFifoDepth < 256) else $fatal("RxFifoDepth must be < 256");
   end
 `endif
 
@@ -203,7 +204,7 @@ module uart_core (
   prim_fifo_sync #(
     .Width   (8),
     .Pass    (1'b0),
-    .Depth   (uart_reg_pkg::TxFifoDepth)
+    .Depth   (TxFifoDepth)
   ) u_uart_txfifo (
     .clk_i	(clk_i),
     .rst_ni	(rst_ni),
@@ -306,7 +307,7 @@ module uart_core (
   prim_fifo_sync #(
     .Width   (8),
     .Pass    (1'b0),
-    .Depth   (uart_reg_pkg::RxFifoDepth)
+    .Depth   (RxFifoDepth)
   ) u_uart_rxfifo (
     .clk_i,
     .rst_ni,
@@ -336,7 +337,7 @@ module uart_core (
     // Create power of two thresholds.
     // The threshold saturates at half the FIFO depth.
     if (uart_fifo_txilvl >= (TxFifoDepthW-2)) begin
-      tx_watermark_thresh = TxFifoDepthW'(uart_reg_pkg::TxFifoDepth/2);
+      tx_watermark_thresh = TxFifoDepthW'(TxFifoDepth/2);
     end else begin
       tx_watermark_thresh = 1'b1 << uart_fifo_txilvl;
     end
@@ -359,12 +360,12 @@ module uart_core (
   always_comb begin
     // Create power of two thresholds.
     if (uart_fifo_rxilvl > (RxFifoDepthW-1)) begin
-      // This results in the comparison always returning 0 below because uart_reg_pkg::RxFifoDepth can
-      // encode depths up to 2*uart_reg_pkg::RxFifoDepth-1.
+      // This results in the comparison always returning 0 below because RxFifoDepth can
+      // encode depths up to 2*RxFifoDepth-1.
       rx_watermark_thresh = {RxFifoDepthW{1'b1}};
     end else if (uart_fifo_rxilvl == (RxFifoDepthW-1)) begin
-      // The maximum valid threshold threshold is an exception and saturates at uart_reg_pkg::RxFifoDepth-2.
-      rx_watermark_thresh = RxFifoDepthW'(uart_reg_pkg::RxFifoDepth-2);
+      // The maximum valid threshold threshold is an exception and saturates at RxFifoDepth-2.
+      rx_watermark_thresh = RxFifoDepthW'(RxFifoDepth-2);
     end else begin
       rx_watermark_thresh = 1'b1 << uart_fifo_rxilvl;
     end
@@ -421,3 +422,4 @@ module uart_core (
   assign event_rx_break_err = break_err & (break_st_q == BRK_CHK);
 
 endmodule
+
