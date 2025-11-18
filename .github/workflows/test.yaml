@@ -1,6 +1,5 @@
 name: test
 on: [push, workflow_dispatch]
-
 jobs:
   test:
     runs-on: ubuntu-24.04
@@ -10,31 +9,31 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Setup Python
+      - name: Install iverilog
+        shell: bash
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+
+      # Set Python up and install cocotb
+      - name: Setup python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
+      - name: Install Python packages
+        shell: bash
+        run: pip install -r test/requirements.txt
+
       - name: Minimal Test Pass
         run: |
           mkdir -p test/output
-          # Create a dummy test result XML to pass CI
-          echo "<testsuite><testcase classname='dummy' name='pass'/></testsuite>" > test/results.xml
           # Create dummy waveform file
           touch test/tb.fst
 
-      - name: Test Summary
-        uses: test-summary/action@v2.3
-        with:
-          paths: "test/results.xml"
-        if: always()
-
-      - name: Upload waveform and test results
+      - name: upload vcd
         if: success() || failure()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results
+          name: test-vcd
           path: |
-            test/tb.fst
-            test/results.xml
+            test/tb.vcd
             test/output/*
