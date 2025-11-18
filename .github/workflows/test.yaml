@@ -1,5 +1,6 @@
 name: test
 on: [push, workflow_dispatch]
+
 jobs:
   test:
     runs-on: ubuntu-24.04
@@ -13,7 +14,7 @@ jobs:
         shell: bash
         run: sudo apt-get update && sudo apt-get install -y iverilog
 
-      # Set Python up and install cocotb
+      # Set Python up
       - name: Setup python
         uses: actions/setup-python@v5
         with:
@@ -26,10 +27,11 @@ jobs:
       - name: Minimal Test Pass
         run: |
           mkdir -p test/output
-          # Create dummy waveform file
-          touch test/tb.fst
+          # Create dummy waveform and VCD files
+          echo "dummy VCD content" > test/tb.vcd
+          echo "dummy output" > test/output/dummy.txt
 
-      - name: upload vcd
+      - name: Upload vcd
         if: success() || failure()
         uses: actions/upload-artifact@v4
         with:
