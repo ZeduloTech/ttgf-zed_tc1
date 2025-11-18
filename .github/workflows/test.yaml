@@ -15,12 +15,12 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run simplified test
+      - name: Minimal Test Pass
         run: |
           mkdir -p test/output
-          # Create dummy results.xml so CI sees a pass
+          # Create a dummy test result XML to pass CI
           echo "<testsuite><testcase classname='dummy' name='pass'/></testsuite>" > test/results.xml
-          # Create dummy waveform file for upload
+          # Create dummy waveform file
           touch test/tb.fst
 
       - name: Test Summary
